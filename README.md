@@ -8,4 +8,4 @@ You can build standalone binaries for your architecture using the following comm
 dotnet publish -r <RID> -c Release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
-where _<RID>_ is the runtime identifier for your platform as specified in https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
+where _\<RID\>_ is the runtime identifier for your platform as specified in https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
