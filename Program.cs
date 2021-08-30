@@ -30,13 +30,20 @@ namespace snyk_whoami
 
             HttpClient client = GetHttpClient();
 
-            var whoamiStreamTask = client.GetStreamAsync("https://snyk.io/api/v1/user/me");
+            try {
 
-            var snykUser = await JsonSerializer.DeserializeAsync<SnykUser>(await whoamiStreamTask);
+                var whoamiStreamTask = client.GetStreamAsync("https://snyk.io/api/v1/user/me");
+
+                var snykUser = await JsonSerializer.DeserializeAsync<SnykUser>(await whoamiStreamTask);
 
                 Console.WriteLine("      id: " + snykUser.id);
                 Console.WriteLine("username: " + snykUser.username);
                 Console.WriteLine("   email: " + snykUser.email);
+
+            }
+            catch (Exception e){
+                Console.WriteLine(e.Message);
+            }
 
         }
     }
