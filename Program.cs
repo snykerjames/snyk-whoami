@@ -40,6 +40,8 @@ namespace snyk_whoami
                 Console.WriteLine("username: " + snykUser.username);
                 Console.WriteLine("   email: " + snykUser.email);
 
+//                Console.WriteLine("\n\nAccess:\n" + JsonSerializer.Serialize(snykUser.orgs, new JsonSerializerOptions() { WriteIndented = true }));
+
             }
             catch (Exception e){
                 Console.WriteLine(e.Message);
