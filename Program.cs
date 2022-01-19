@@ -36,9 +36,13 @@ namespace snyk_whoami
 
                 var snykUser = await JsonSerializer.DeserializeAsync<SnykUser>(await whoamiStreamTask);
 
-                Console.WriteLine("      id: " + snykUser.id);
-                Console.WriteLine("username: " + snykUser.username);
-                Console.WriteLine("   email: " + snykUser.email);
+                // Output: "username" <email> [userid]
+                var userAsString =
+                    "\"" + snykUser.username + "\"" +
+                    " <" + snykUser.email + "> " + 
+                    "["  + snykUser.id + "]";
+                
+                Console.WriteLine(userAsString);
 
 //                Console.WriteLine("\n\nAccess:\n" + JsonSerializer.Serialize(snykUser.orgs, new JsonSerializerOptions() { WriteIndented = true }));
 
